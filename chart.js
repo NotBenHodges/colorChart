@@ -1,6 +1,7 @@
 var colorDataP = d3.csv("colors.csv");
 var drawChart = function(data)
 {
+  console.log(data);
   var height = 400;
   var width = 600;
   var barWidth = width/data.length;
@@ -8,6 +9,7 @@ var drawChart = function(data)
               .append("svg")
               .attr("height",height)
               .attr("width",width);
+
   svg.selectAll("rect")
       .data(data)
       .enter()
@@ -28,12 +30,29 @@ var drawChart = function(data)
     {
       return d.color;
     })
+
+  svg.select("rect").selectAll("text")
+      .data(data)
+      .enter()
+      .append("text")
+      .text(function(d)
+    {
+      return d.num;
+    })
+    .attr("x", function(d, i)
+  {
+    return i*(width/data.length);
+  })
+  .attr("y", function(d)
+{
+  return h-(d*10);
+})
 }
 
 colorDataP.then(function(data)
 {
   console.log("data", data);
-  drawChart(colorDataP);
+  drawChart(data);
 },
   function(err)
 {
