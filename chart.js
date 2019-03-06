@@ -19,42 +19,56 @@ var drawChart = function(data)
         return i * barWidth;
       })
       .attr("y",function(d) {
-        return height - d.num * 10;
+        return height - d.num * 20;
       })
       .attr("width",barWidth)
       .attr("height",function(d)
       {
-        return d.num * 10;
+        return d.num * 20;
       })
       .attr("fill",function(d)
     {
       return d.color;
     })
 
-  svg.select("rect").selectAll("text")
-      .data(data)
-      .enter()
-      .append("text")
-      .text(function(d)
-    {
-      return d.num;
-    })
-    .attr("x", function(d, i)
-  {
-    return i*(width/data.length);
-  })
-  .attr("y", function(d)
-{
-  return height-(d*10);
-})
-
-svg.selectAll("text")
+var text = svg.selectAll("text")
     .data(data)
     .enter()
     .append("text")
     .text(function(d){
-      return d;
+      return d.num;
     })
+    .attr("x",function(d,i){
+      return i * (width / data.length)+43;
+    })
+    .attr("y",function(d){
+      return height - (d.num * 20)+15;
+    })
+    .attr("fill","white");
+
+    var legend = svg.append("rect")
+        .attr("class","legend")
+        .attr("height","100")
+        .attr("width","150")
+        .attr("x", "425")
+        .attr("y", "50")
+        .attr("fill","transparent")
+        .attr("stroke","black")
+        .attr("stroke-width", "2px");
+
+    svg.select(".legend").selectAll("rect")
+          .data(data)
+          .enter()
+          .append("rect")
+          .attr("x", "450")
+          .attr("y", "75")
+          .attr("width","20")
+          .attr("height","20")
+          .attr("fill",function(d)
+        {
+          return d.color;
+        })
+
 }
 
 colorDataP.then(function(data)
