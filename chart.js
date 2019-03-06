@@ -45,8 +45,16 @@ var drawChart = function(data)
   })
   .attr("y", function(d)
 {
-  return h-(d*10);
+  return height-(d*10);
 })
+
+svg.selectAll("text")
+    .data(data)
+    .enter()
+    .append("text")
+    .text(function(d){
+      return d;
+    })
 }
 
 colorDataP.then(function(data)
