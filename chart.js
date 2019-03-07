@@ -56,18 +56,54 @@ var text = svg.selectAll("text")
         .attr("stroke","black")
         .attr("stroke-width", "2px");
 
-    svg.select(".legend").selectAll("rect")
-          .data(data)
-          .enter()
-          .append("rect")
-          .attr("x", "450")
-          .attr("y", "75")
-          .attr("width","20")
-          .attr("height","20")
-          .attr("fill",function(d)
-        {
-          return d.color;
-        })
+    var box = svg.append("rect")
+        .attr("height","15")
+        .attr("width","15")
+        .attr("x","430")
+        .attr("y","55")
+        .attr("fill","blue")
+
+    var box = svg.append("rect")
+        .attr("height","15")
+        .attr("width","15")
+        .attr("x","430")
+        .attr("y","75")
+        .attr("fill","green")
+
+    var box = svg.append("rect")
+        .attr("height","15")
+        .attr("width","15")
+        .attr("x","430")
+        .attr("y","95")
+        .attr("fill","red")
+
+    var box = svg.append("rect")
+        .attr("height","15")
+        .attr("width","15")
+        .attr("x","430")
+        .attr("y","115")
+        .attr("fill","black")
+
+    var box = svg.append("rect")
+        .attr("height","15")
+        .attr("width","15")
+        .attr("x","500")
+        .attr("y","55")
+        .attr("fill","purple")
+
+    var box = svg.append("rect")
+        .attr("height","15")
+        .attr("width","15")
+        .attr("x","500")
+        .attr("y","75")
+        .attr("fill","gold")
+
+    var box = svg.append("rect")
+        .attr("height","15")
+        .attr("width","15")
+        .attr("x","500")
+        .attr("y","95")
+        .attr("fill","teal")
 
 }
 
