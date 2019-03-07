@@ -105,6 +105,40 @@ var text = svg.selectAll("text")
         .attr("y","95")
         .attr("fill","teal")
 
+    var name = svg.append("text")
+        .text("blue")
+        .attr("x","450")
+        .attr("y","65")
+
+    var name = svg.append("text")
+        .text("green")
+        .attr("x","450")
+        .attr("y","85")
+
+    var name = svg.append("text")
+        .text("red")
+        .attr("x","450")
+        .attr("y","105")
+
+    var name = svg.append("text")
+        .text("black")
+        .attr("x","450")
+        .attr("y","125")
+
+    var name = svg.append("text")
+        .text("purple")
+        .attr("x","520")
+        .attr("y","65")
+
+    var name = svg.append("text")
+        .text("gold")
+        .attr("x","520")
+        .attr("y","85")
+
+    var name = svg.append("text")
+        .text("teal")
+        .attr("x","520")
+        .attr("y","105")
 }
 
 colorDataP.then(function(data)
